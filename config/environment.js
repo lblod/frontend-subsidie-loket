@@ -34,6 +34,7 @@ module.exports = function (environment) {
     },
     features: {
       // 'feature-name': '{{FEATURE_ENV_VAR_NAME}}',
+      verenigingenUnderConstruction: '{{VERENIGINGEN_UNDER_CONSTRUCTION}}',
     },
     lpdcUrl: '{{LPDC_URL}}',
     worshipDecisionsDatabaseUrl: '{{WORSHIP_DECISIONS_DATABASE_URL}}',

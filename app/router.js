@@ -1,5 +1,6 @@
 import EmberRouter from '@ember/routing/router';
 import config from 'frontend-subsidie-loket/config/environment';
+import isFeatureEnabled from 'frontend-subsidie-loket/helpers/is-feature-enabled';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -19,6 +20,10 @@ Router.map(function () {
   });
 
   this.route('contact');
+
+  if (isFeatureEnabled('verenigingenUnderConstruction')) {
+    this.route('under-construction');
+  }
 
   this.route('legaal', function () {
     this.route('disclaimer');
