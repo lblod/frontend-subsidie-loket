@@ -1,4 +1,4 @@
-<div class="au-c-body-container au-c-body-container--scroll">
+<div id="subsidyParent" class="au-c-body-container au-c-body-container--scroll">
 
   <div
     class="au-o-box {{if (or this.saveConcept.isRunning this.submit.isRunning) 'au-c-form--disabled'}}"
@@ -17,7 +17,7 @@
     />
   </div>
 
-  <AuToolbar @size="large" as |Group|>
+  <AuToolbar class="invisible-on-print" @size="large" as |Group|>
     {{#if (and this.forceShowErrors (not this.isValidForm))}}
       <Group class="au-c-toolbar__group--row">
         <AuAlert

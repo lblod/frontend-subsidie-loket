@@ -1,0 +1,101 @@
+@media print {
+  // Fixes the overflow during printing
+  #subsidyParent {
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+  .au-c-app {
+    // overflow: visible;
+    height: auto;
+  }
+
+  .invisible-on-print {
+    visibility: hidden;
+  }
+
+  .display-on-print{
+    display: block !important;
+  }
+
+
+  // Hides the 'download bestand' button
+  .au-c-link[download] {
+    display: none;
+  }
+
+  // Show the title fully
+  .au-c-main-header__title--link {
+    overflow: visible;
+  }
+  // Hides the title href
+  .au-c-main-header__title--link:after {
+    content: none !important;
+  }
+
+  // show the logged in user fully
+  .logged-in-user button span{
+    max-width: fit-content;
+  }
+
+  .au-c-list-navigation__link:after {
+    content: none !important;
+  }
+
+  .subsidy-steps {
+    flex-wrap: nowrap;
+  }
+
+  // Fix the inivisble radio buttons
+  .au-c-control__input {
+    position: relative;
+    opacity: 1;
+    z-index: 0;
+  }
+  .au-c-control__indicator {
+    display: none;
+  }
+
+  // change the blue color to gray on print
+  .au-c-button--icon-only {
+    border-color: var(--au-gray-300) !important;
+  }
+
+  // Hide all hrefs
+  a[href]:after {
+    content: none !important;
+  }
+
+  .data-table{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  table{
+    // fix the input fields not showing the number inside the tables
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    // Needed for wide tables (4+ columns)
+    word-break: break-all;
+  }
+
+  // Hides the headers and footers information
+  // @page {
+  //    margin: 3rem;
+  // }
+}
+
+// Hide by default, display when printing
+.display-on-print{
+  display: none;
+}

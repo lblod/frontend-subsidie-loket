@@ -58,6 +58,7 @@
     "@sentry/ember": "^7.54.0",
     "broccoli-asset-rev": "^3.0.0",
     "browser-update": "^3.3.38",
+    "client-zip": "^2.4.5",
     "concurrently": "^8.0.1",
     "ember-auto-import": "^2.6.3",
     "ember-cli": "~4.12.2",

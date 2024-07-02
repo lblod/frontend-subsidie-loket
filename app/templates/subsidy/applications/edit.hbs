@@ -17,17 +17,37 @@
   </Group>
   <Group class="au-c-toolbar__group--col">
     <AuButtonGroup>
+      {{#if this.canDownload}}
+        <AuDropdown
+          @title="Bestanden Downloaden"
+          @buttonLabel="Account settings"
+          @alignment="right"
+          @skin="secondary"
+          @icon="download"
+          @iconAlignment="left"
+          role="menu"
+          class="au-u-hide-on-print"
+        >
+          <AuButton @skin="link" role="menuitem" {{on "click" this.exportSubsidyAsPDF}}>
+            Download huidige stap (PDF)
+          </AuButton>
+          <AuButton @skin="link" role="menuitem" {{on "click" this.downloadBijlagen}}>
+            Alle bijlagen downloaden in .zip
+          </AuButton>
+        </AuDropdown>
+      {{/if}}
       {{#if this.canDelete}}
         <AuButton
           @disabled={{not this.consumption.isStable}}
           @loading={{this.delete.isRunning}}
-          @skin="link"
+          @skin="secondary"
           @alert="true"
           @icon="bin"
           @iconAlignment="left"
+          class="au-u-hide-on-print"
           {{on "click" (perform this.delete)}}
         >
-          Verwijder aanvraag
+          Aanvraag verwijderen
         </AuButton>
       {{/if}}
       {{#if this.canArchive}}
@@ -43,9 +63,6 @@
           Archiveer verlopen aanvraag
         </AuButton>
       {{/if}}
-      <AuLink @route="subsidy.applications.index" @icon="cross">
-        Sluit
-      </AuLink>
     </AuButtonGroup>
   </Group>
 </AuToolbar>
@@ -91,7 +108,7 @@
 <SidebarContainer>
   <:sidebar>
     <nav>
-      <ul class="au-c-list-navigation">
+      <ul class="au-c-list-navigation subsidy-steps">
         {{#each this.consumption.subsidyApplicationFlow.sortedDefinedSteps as |step|}}
           <li class="au-c-list-navigation__item">
             <LinkTo @route="subsidy.applications.edit.step" @model={{step.id}} class="au-c-list-navigation__link" style="flex-direction: column; align-items: start;" {{!template-lint-disable no-inline-styles}}>

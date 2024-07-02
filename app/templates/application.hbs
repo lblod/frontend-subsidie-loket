@@ -10,7 +10,7 @@
     @homeRoute="index"
     @appTitle={{this.appTitle}}
   >
-    <li class="au-c-list-horizontal__item hide-on-print">
+    <li class="au-c-list-horizontal__item au-u-hide-on-print">
       <AuLinkExternal
         href="https://abb-vlaanderen.gitbook.io/handleiding-loket/veelgestelde-vragen"
         @skin="secondary"
@@ -26,6 +26,7 @@
           @buttonLabel="Account settings"
           @alignment="right"
           role="menu"
+          class="logged-in-user"
         >
           <AuLink @route="auth.switch" @icon="switch" role="menuitem">
             Wissel van bestuurseenheid
@@ -46,10 +47,10 @@
       <main.content>
         <AuBodyContainer>
           {{#unless this.isIndexOrLoading}}
-            <AuToolbar @size="medium" @skin="tint" @border="bottom" as |Group|>
+            <AuToolbar class="au-u-hide-on-print" @size="medium" @skin="tint" @border="bottom" as |Group|>
               <Group>
                 <ul
-                  class="au-c-list-horizontal au-c-list-horizontal--small hide-on-print"
+                  class="au-c-list-horizontal au-c-list-horizontal--small"
                 >
                   <li class="au-c-list-horizontal__item">
                     <AuLink @route="subsidy.applications" @icon="arrow-left">
